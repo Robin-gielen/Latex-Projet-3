@@ -1,0 +1,82 @@
+\newpage 
+
+\section{Cahier des charges}
+
+Lors de la rédaction de notre cahier des charges, nous avons décidé de le présenter sous la forme suivante : \\
+Tout d'abord une partie reprenant les fonctions principales en général, ensuite une partie précisant les différentes spécifications propres à chacunes de nos fonctions principales et enfin une partie contenant les contraintes spécifiques à notre programme. 
+
+\subsection{Fonctions Principales}
+
+\begin{itemize}
+\item Générer des code-barres CB2D à partir d'un texte
+\item Lire des code-barres CB2D et en extraire les informations
+\item Intégrer une fonction de vérification et de correction des code-barres CB2D
+\end{itemize}
+
+\subsection{Niveaux de Fonctions Principales}
+
+\subsubsection{Générer des code-barres CB2D} 
+
+La première chose que le programme doit effectuer lors de la génération d'un CB2D est d'analyser l'information à stocker afin d'en extraire plusieurs informations : \\
+
+\begin{itemize}
+\item La taille de l'information à stocker
+\end{itemize}
+Nous cherchons à minimiser la taille du CB2D pour ne pas perdre de l'espace inutilement. \\
+
+\begin{itemize}
+\item Le type de données à stocker
+\end{itemize}
+Il existe en effet plusieurs type de données pris en compte : 
+
+	\begin{enumerate}
+	\item Texte ASCII 7-bits (Norme ISO 646)
+	\item Texte ASCII étendu (Norme ISO 8859-1)
+	\item URL (Norme RFC 3986)
+	\end{enumerate}
+
+\begin{itemize}
+\item Le type de compression appliqué aux données contenues
+\end{itemize}
+
+Nous n'avons actuellement pas de compression appliquée à nos données, mais il est tout a fait possible d'ajouter cette fonction au programme dans le futur. \\
+
+Mais le programme doit également mettre en place le système de correction, que nous présentons dans la section "3.2.3 Intégrer une fonction de correction des CB2D", qui sera utilisé lors d'une futur lecture du CB2D.
+
+\subsubsection{Lire des code-barres CB2D}
+
+Lors de la lecture des CB2D, le programme doit effectuer une vérification grâce à l'algorithme de correction. En effet, le programme doit s'assurer un minimum que le CB2D qu'il s'apprete à lire n'est pas endommager.
+De plus, le programme doit être capable d'identifier le type de compression et le type de données stockées dans le CB2D afin de pouvoir lire ce dernier à pleine efficacité. Les différentes informations relatives à ces données ayant déjà été citées plus haut dans la section "3.2.1 Générer des code-barres CB2D".
+
+\subsubsection{Intégrer une fonction de correction des CB2D}
+
+Le programme inclut, en effet, un algorithme de correction qui va permettre de savoir si le CB2D a été altéré entre le moment où il a été généré et le moment où il va être lu. 
+Cet algorithme fonctionne de la manière suivante : \\
+Lors de l'écriture du CB2D, le programme garde à sa disposition la première ligne et la première colonne pour le correcteur. Lorsque le CB2D est pret à être imprimé, le programme va regarder la parité de chaque ligne et de chaque colonne et indiqué celle-ci dans la première ligne/colonne correspondante. Ainsi, lors de la lecture du CB2D, le programme pourra vérifier si la parité est respectée. Trois cas peuvent alors se présenter : 
+\begin{itemize}
+\item Il n'y a pas d'erreur \textbf{détectée} par le programme
+\item Une seul erreur est \textbf{détectée} par le programme
+\item Plusieurs erreurs sont \textbf{détectées} par le programme
+\end{itemize} 
+Cet algorithme est surtout efficace pour détecter les erreurs, et non pas pour corriger totalement un CB2D. En effet, il est tout à fait possible que le programme ne détecte qu'une seule erreur (alors que plusieurs sont présentes) si plus d'une section du CB2D a été déteriorée. Ou encore de ne pas détecter d'erreur malgré qu'une soit bien présente. 
+Dans le cas ou le programme détecte une seule erreur, il pourra la réparer, mais si le programme détecte plusieurs erreurs, il ne pourra qu'afficher les numéros des lignes et colonnes concernées sans pouvoir le corriger avec certitude. \\
+Cependant, cet algorithme a pour avantage de détecter avec une précision appréciable si le CB2D a été altéré ou pas, et donc permettre d'extraire les informations tout en informant l'utilisateur d'une possible corruption de celles-ci.
+
+\subsection{Contraintes}
+
+Les contraintes sont les suivantes : 
+
+\begin{itemize}
+\item La taille d'un code-barre sera de :
+	\begin{enumerate}
+	\item 32 * 32 
+	\item 64 * 64 
+	\item 128 * 128 
+	\item 256 * 256
+	\end{enumerate}
+\item La lecture et la génération devra être effectuée en moins de 2 secondes
+\item Le CB2D devra être chargé à partir d'une image
+\item Le texte qui sera imprimé ne devra pas depasser 8182 caractères
+\end{itemize}
+
+

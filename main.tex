@@ -1,0 +1,73 @@
+\documentclass[10pt]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[french]{babel} 
+\usepackage{graphicx} % images
+\usepackage{hyperref} % liens
+\usepackage{amsmath} % pour le texte dans les formules
+\usepackage[squaren,Gray]{SIunits} % pour afficher les nombres sans le mode math qui est moche
+\usepackage{float}
+\usepackage{hyperref}
+\usepackage{fullpage}
+\usepackage[final]{pdfpages} % Package afin d'inculre des pdf dans le rapport
+
+\frenchspacing
+
+\title{Projet 3 - Gestionnaire de code-barres CB2D}
+\date{3 décembre 2014}
+\author{Robin Gielen, Julien Banken et Jérémy Gossiaux}
+
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
+
+
+\begin{document}
+
+\begin{titlepage}
+\begin{center}
+
+% Upper part of the page. The '~' is needed because \\
+% only works if a paragraph has started.
+
+\textsc{\Large LSINF 1102 - Résolution informatiques de problèmes}\\[0.5cm]
+
+% Title
+\HRule \\[0.4cm]
+{ \huge \bfseries Projet 3 - Gestionnaire de code-barres CB2D \\[0.4cm] }
+
+\HRule \\[1.5cm]
+
+{\large \today}
+
+\vfill
+
+% Author and supervisor
+\noindent
+\begin{minipage}{0.4\textwidth}
+\begin{flushleft} \large
+\emph{Auteurs:}\\
+Robin Gielen, Julien Banken, Jérémy Gossiaux \textsc{} 
+\end{flushleft}
+\end{minipage}%
+\begin{minipage}{0.4\textwidth}
+\begin{flushright} \large
+\emph{Tuteur:} \\
+Xavier \textsc{Carpent}
+\end{flushright}
+\end{minipage}
+
+
+
+\end{center}
+\end{titlepage}
+
+\input{1Abstract.tex}
+\input{2Introduction.tex}
+\input{3CahierDesCharges.tex}
+\input{4ManuelD'installationEtD'utilisation.tex}
+\input{5FonctionnalitéDuCode.tex}
+\input{6MigrationVersLesCodesQR.tex}
+\input{7Planning.tex}
+\input{8Conclusion.tex}
+\input{9Annex.tex}
+\end{document}
