@@ -1,0 +1,6 @@
+*.gz
+*.pdf
+*.out
+*.log
+*.aux
+main.toc

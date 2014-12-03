@@ -2,6 +2,38 @@
 
 \section{Fonctionnalité du code}
 
-Fonction
+Le programme est séparé en plusieurs blocs distincts. Ce rapport ne détaillera cependant que les trois plus important d'entres eux. En effet, ces trois blocs sont le bloc dédié à la getsion de l'interaction entre l'utilisateur et le programme et ceux dédiés à la génération et la lecture des code-barres CB2D.
 
-\subsection{}
+\subsection{CodeBarManager}
+
+Cette partie du programme a pour but, comme indiqué ci dessus, de gérer les interactions entre l'utilisateur et le programme. L'utilisateur a en effet plusieurs choix à faire durant l'utilisation du programme : 
+
+\begin{itemize}
+\item Lecture d'un code-barre CB2D
+	\begin{enumerate}
+	\item Entrer le chemin d'accès au code-barre CB2D
+	\end{enumerate}
+\item Génération d'un code-barre CB2D
+	\begin{enumerate}
+	\item Entrer le texte que l'on veut stocker dans le CB2D
+	\item Entrer le type de format que l'on veut utiliser
+	\item Entrer le type de compression que l'on veut appliquer
+	\item Entrer le chemin d'accès où le fichier sera sauvegardé
+	\end{enumerate}
+\end{itemize}
+
+Chaque fois que l'utilisateur doit entrer quelque chose à la console, nous vérifions que ce qu'il entre est correcte et n'amènera pas d'erreur dans le programme. 
+\\
+Mais c'est également dans cette partie du programme que : 
+\begin{itemize}
+\item Les informations vont être extraites (non décodées !) du CB2D à partir du fichier image
+\item Le CB2D va être dessiner et sauvegarder dans un fichier au format .png
+\end{itemize}
+
+\subsection{Encodeur}
+
+Cette partie du programme a pour fonction d'encoder le message fournit par l'utilisateur. C'est grâce à ce bloc du programme que le code va être transformé d'un simple texte en langage binaire prêt à être dessiné en CB2D. Pour cela, le programme va non seulement transformer le texte en binaire, mais il va également mettre en place l'algorithme de correction du futur CB2D. 
+\subsection{Decodeur}
+
+Cette dernière partie a, quant à elle, pour but de décoder les informations tirées d'un CB2D. 
+En effet, lors de la lecture d'un CB2D, le programme va recevoir des informations sous forme binaire et il devra donc décoder ces informations afin d'en tirer les données utiles à l'utilisateur. Pour cela, le programme
