@@ -32,8 +32,8 @@ Mais c'est également dans cette partie du programme que :
 
 \subsection{Encodeur}
 
-Cette partie du programme a pour fonction d'encoder le message fournit par l'utilisateur. C'est grâce à ce bloc du programme que le code va être transformé d'un simple texte en langage binaire prêt à être dessiné en CB2D. Pour cela, le programme va non seulement transformer le texte en binaire, mais il va également mettre en place l'algorithme de correction du futur CB2D. 
+Cette partie du programme a pour fonction d'encoder le message fournit par l'utilisateur. C'est grâce à ce bloc du programme que le code va être transformé d'un simple texte en langage binaire prêt à être dessiné en CB2D. Pour cela, le programme va non seulement transformer le texte en binaire et le placer dans une matrice, mais il va également mettre en place l'algorithme de correction du futur CB2D. 
 \subsection{Decodeur}
 
 Cette dernière partie a, quant à elle, pour but de décoder les informations tirées d'un CB2D. 
-En effet, lors de la lecture d'un CB2D, le programme va recevoir des informations sous forme binaire et il devra donc décoder ces informations afin d'en tirer les données utiles à l'utilisateur. Pour cela, le programme
+En effet, lors de la lecture d'un CB2D, le programme va recevoir des informations sous forme binaire et il devra donc décoder ces informations afin d'en tirer les données utiles à l'utilisateur. Pour cela, le programme va d'abord vérifier si il n'y a pas d'erreurs dans la matrice de bits. Ensuite, si il n'y a pas de fautes ou si il a pu les corriger, le programme va traduire la chaine de bits obtenue en texte.
